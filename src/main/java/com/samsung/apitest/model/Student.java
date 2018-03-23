@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class Student {
 	
-	@ApiModelProperty(notes = "the name of student", required = true)
+//	@ApiModelProperty(notes = "the name of student", required = true)
 	@NotNull(groups = CreateBinding.class)
 	private String name;
 	

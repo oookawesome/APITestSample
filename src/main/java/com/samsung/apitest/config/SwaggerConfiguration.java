@@ -29,10 +29,10 @@ public class SwaggerConfiguration {
 
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("Sample API Test")
-				.description("Swagger UI sample")
-				.contact(new Contact("Martin", "myblog.com", "test@naver.com"))
-				.version("1.0")
+				.title("")
+				.description("")
+				.contact("")
+				.version("")
 				.build();
 	}
 }

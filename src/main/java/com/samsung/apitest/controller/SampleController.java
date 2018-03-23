@@ -3,6 +3,7 @@ package com.samsung.apitest.controller;
 import java.util.Arrays;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.test.context.junit.jupiter.DisabledIf;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,15 +23,9 @@ import com.samsung.apitest.validator.CreateBinding;
 
 import io.swagger.annotations.*;
 
-@Api(tags = {"test TAG"}, description = "test DESC", produces = "application/json")
 @RestController
 public class SampleController {
 	
-	@ApiOperation(value = "get student", nickname = "nickname : get student")
-	@ApiResponses(value = {
-		@ApiResponse(code = 200, message = "Successfully retrieve student", response = Student.class),
-		@ApiResponse(code = 404, message = "Not Found student"),
-	})
 	@GetMapping("/student/{studentId}")
 	@ResponseStatus(HttpStatus.OK)
 	public Student retrieve(@PathVariable Integer studentId) {
