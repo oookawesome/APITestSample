@@ -26,10 +26,7 @@ public class Answer_SampleWireMockTest {
 		RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
 		
 		wireMockRule.stubFor(delete(urlEqualTo("/student/125"))
-				.willReturn(aResponse()
-						.withHeader("Content-Type", "application/json")
-						.withStatus(200)
-						.withBody("{ \"message\" : \"success\" }")));
+				.willReturn(okJson("{ \"message\" : \"success\" }")));
 	}
 	
 	@Test
