@@ -1,0 +1,2 @@
+web: ./mvnw clean package
+web: java -jar target/sample-0.0.1-SNAPSHOT.jar
