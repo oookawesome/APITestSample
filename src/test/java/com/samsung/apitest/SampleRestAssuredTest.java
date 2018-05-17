@@ -6,7 +6,6 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Collections;
@@ -17,7 +16,6 @@ import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
-@Ignore
 public class SampleRestAssuredTest {
 	
 	@Before
@@ -59,10 +57,10 @@ public class SampleRestAssuredTest {
 	
 	@Test
 	public void postStudentTest() {
-		Map<String, Object> reqBody = new HashMap<String,Object>();
+		Map<String, Object> reqBody = new HashMap<>();
 		reqBody.put("name", "Jang Min Seok");
 		reqBody.put("id", 678);
-		Map<String, Object> scores = new HashMap<String,Object>();
+		Map<String, Object> scores = new HashMap<>();
 		scores.put("subject", "Math");
 		scores.put("point", 50);
 		reqBody.put("scores", Collections.singletonList(scores));
