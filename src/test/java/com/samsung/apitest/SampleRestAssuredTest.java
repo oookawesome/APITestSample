@@ -1,5 +1,6 @@
 package com.samsung.apitest;
 
+import com.google.common.collect.ImmutableMap;
 import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
@@ -9,8 +10,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -57,14 +56,9 @@ public class SampleRestAssuredTest {
 	
 	@Test
 	public void postStudentTest() {
-		Map<String, Object> reqBody = new HashMap<>();
-		reqBody.put("name", "Jang Min Seok");
-		reqBody.put("id", 678);
-		Map<String, Object> scores = new HashMap<>();
-		scores.put("subject", "Math");
-		scores.put("point", 50);
-		reqBody.put("scores", Collections.singletonList(scores));
-		
+		ImmutableMap<String, Object> scores = ImmutableMap.of("subject", "Math", "point", 50);
+		ImmutableMap<String, Object> reqBody = ImmutableMap.of("name", "Bruce Wayne", "id", 678, "scores", Collections.singletonList(scores));
+
 		Response response = 
 		given()
 			.contentType(ContentType.JSON)
@@ -73,7 +67,7 @@ public class SampleRestAssuredTest {
 			.post("/student")
 		.then()
 			.statusCode(201)
-			.body("student.name", is("Jang Min Seok"))
+			.body("student.name", is("Bruce Wayne"))
 			.body("student.id", is(678))
 			.body("student.scores[0].subject", is("Math"))
 			.body("student.scores[0].point", is(50))
